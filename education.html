@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaumitra - Education</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation (you can reuse the same nav) -->
+  <nav>
+    <div class="logo">🐄 Gaumitra</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#identify">AI Breed</a></li>
+      <li><a href="index.html#health">Cow Health</a></li>
+      <li><a href="index.html#monitor">IoT Monitoring</a></li>
+      <li><a href="index.html#blockchain">Blockchain</a></li>
+      <li><a href="index.html#marketplace">Marketplace</a></li>
+      <li><a href="index.html#chatbot">Chatbot</a></li>
+      <li><a href="index.html#analytics">Analytics</a></li>
+      <li><a href="education.html">Education</a></li>
+    </ul>
+  </nav>
+
+  <!-- Education Section (Separate Page) -->
+  <section id="education">
+    <h2>🎓 Education & Quizzes</h2>
+    <p>Watch our educational video and test your knowledge with a quick quiz!</p>
+    
+    <!-- Embedded Educational Video (Replace VIDEO_ID with actual ID) -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
+        title="Educational Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Simple Quiz -->
+    <div class="quiz">
+      <h3>Quiz: Which Indian cow breed is known for its high milk yield?</h3>
+      <ul>
+        <li>
+          <input type="radio" name="quiz" value="Gir" id="q1">
+          <label for="q1">Gir</label>
+        </li>
+        <li>
+          <input type="radio" name="quiz" value="Sahiwal" id="q2">
+          <label for="q2">Sahiwal</label>
+        </li>
+        <li>
+          <input type="radio" name="quiz" value="Kankrej" id="q3">
+          <label for="q3">Kankrej</label>
+        </li>
+        <li>
+          <input type="radio" name="quiz" value="Red Sindhi" id="q4">
+          <label for="q4">Red Sindhi</label>
+        </li>
+      </ul>
+      <button onclick="checkQuiz()">Submit Answer</button>
+      <div id="quizResult"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gaumitra | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

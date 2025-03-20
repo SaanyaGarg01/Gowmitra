@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaumitra - Smart Cow Conservation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- TensorFlow.js for AI functions -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <!-- Chart.js for Analytics Dashboard -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">🐄 Gaumitra</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#identify">AI Breed</a></li>
+      <li><a href="#health">Cow Health</a></li>
+      <li><a href="#monitor">IoT Monitoring</a></li>
+      <li><a href="#blockchain">Blockchain</a></li>
+      <li><a href="#marketplace">Marketplace</a></li>
+      <li><a href="#chatbot">Chatbot</a></li>
+      <li><a href="#analytics">Analytics</a></li>
+      <li><a href="education.html">Education</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <h1>Reviving Indian Cow Breeds for a Sustainable Future</h1>
+    <p>Preserving heritage, promoting sustainability, and empowering farmers.</p>
+    <button onclick="learnMore()">Learn More</button>
+  </header>
+
+  <!-- AI Breed Detection -->
+  <section id="identify">
+    <h2>🐄 AI-Powered Cow Breed Identification</h2>
+    <p>Upload an image to detect the cow breed.</p>
+    <input type="file" id="imageUpload" />
+    <button onclick="identifyBreed()">Identify Breed</button>
+    <div id="result"></div>
+  </section>
+
+  <!-- Cow Health Diagnosis -->
+  <section id="health">
+    <h2>🩺 AI Cow Health Diagnosis</h2>
+    <p>Upload an image or enter symptoms to diagnose common issues.</p>
+    <input type="file" id="healthImageUpload" />
+    <input type="text" id="symptomInput" placeholder="Enter symptoms (e.g., lethargy, fever)" />
+    <button onclick="diagnoseHealth()">Diagnose Health</button>
+    <div id="healthResult"></div>
+  </section>
+
+  <!-- IoT Gaushala Monitoring -->
+  <section id="monitor">
+    <h2>📡 IoT-Based Gaushala Monitoring</h2>
+    <p>Live data from cow shelters.</p>
+    <div class="data-card">
+      <h3>Temperature: <span id="temperature">38°C</span></h3>
+      <h3>Activity Level: <span id="activity">Normal</span></h3>
+      <h3>Milk Yield: <span id="milk">12 Liters</span></h3>
+    </div>
+  </section>
+
+  <!-- Blockchain Sponsorship -->
+  <section id="blockchain">
+    <h2>🔗 Blockchain-Based Cow Sponsorship</h2>
+    <p>Own & track cows transparently via NFT sponsorship.</p>
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <button onclick="sponsorCow()">Sponsor a Cow NFT</button>
+    <div id="blockchainResult"></div>
+  </section>
+
+  <!-- Marketplace -->
+  <section id="marketplace">
+    <h2>🛒 Cow-Based Product Marketplace</h2>
+    <div class="product">
+      <img src="milk.jpg" alt="A2 Milk" />
+      <h3>A2 Organic Milk</h3>
+      <button onclick="addToCart('A2 Organic Milk')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="fertilizer.jpg" alt="Organic Fertilizer" />
+      <h3>Organic Cow Dung Fertilizer</h3>
+      <button onclick="addToCart('Organic Fertilizer')">Add to Cart</button>
+    </div>
+    <div id="cart">
+      <h3>Your Cart:</h3>
+      <ul id="cartItems"></ul>
+    </div>
+  </section>
+
+  <!-- AI Chatbot -->
+  <section id="chatbot">
+    <h2>🤖 AI Chatbot for Farmers</h2>
+    <p>Ask about cow breeds, diseases, and organic farming practices.</p>
+    <input type="text" id="chatInput" placeholder="Ask me anything..." />
+    <button onclick="chatbotResponse()">Send</button>
+    <div id="chatResult"></div>
+  </section>
+
+  <!-- Data Analytics Dashboard -->
+  <section id="analytics">
+    <h2>📊 Data Analytics Dashboard</h2>
+    <p>Real-time insights on cow populations and milk quality.</p>
+    <canvas id="analyticsChart" width="400" height="200"></canvas>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gaumitra | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
