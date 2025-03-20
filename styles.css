@@ -155,4 +155,87 @@ body {
   button:hover {
     background: #01281c;
   }
-  
+  /* Timeline Section */
+.timeline {
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.timeline ul {
+  list-style: none;
+  padding: 0;
+}
+.timeline li {
+  margin: 10px 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.timeline .date {
+  font-weight: bold;
+  color: #013220;
+  min-width: 60px;
+}
+.timeline .event {
+  flex: 1;
+}
+
+/* Resource Library Section */
+.resources {
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.resources ul {
+  list-style: none;
+  padding: 0;
+}
+.resources li {
+  margin: 10px 0;
+}
+.resources a {
+  color: #013220;
+  text-decoration: none;
+  font-weight: bold;
+}
+.resources a:hover {
+  text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq {
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.faq-item {
+  margin-bottom: 10px;
+}
+.faq-question {
+  width: 100%;
+  background: #013220;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.faq-answer {
+  display: none;
+  padding: 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 5px;
+  margin-top: 5px;
+  color: #013220;
+}

@@ -165,4 +165,12 @@ async function identifyBreed() {
   window.onload = function() {
     renderAnalyticsChart();
   };
-  
+  // ----- FAQ Toggle Function -----
+function toggleFAQ(faqId) {
+  const answerDiv = document.getElementById(faqId);
+  if (answerDiv.style.display === "block") {
+    answerDiv.style.display = "none";
+  } else {
+    answerDiv.style.display = "block";
+  }
+}
