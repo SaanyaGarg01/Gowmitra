@@ -1,14 +1,23 @@
+/* Import a modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 /* Base Styles & Background */
 body {
-  font-family: 'Arial', sans-serif;
+
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  /* Dark green background */
-  background: #013220;
-  /* Adding a white overlay */
+  background: #013220; /* Dark green background */
   position: relative;
   z-index: 1;
+  color: #fff;
 }
+
+/* White overlay with subtle texture */
 
 body::before {
   content: "";
@@ -17,22 +26,27 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8); /* Opaque white layer */
+
+  background: rgba(255, 255, 255, 0.8);
   z-index: -1;
+  /* Optionally add a subtle noise texture */
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
 }
 
-/* Navigation Bar - Dark Green */
+/* Navigation Bar - Dark Green with Hover Underline */
 nav {
   background: #013220;
-  padding: 15px;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 nav .logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 700;
 }
 nav ul {
   list-style: none;
@@ -43,6 +57,57 @@ nav ul {
 }
 nav ul li a {
   text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+nav ul li a:hover {
+  color: #cddc39;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section with gradient overlay */
+header {
+  background: linear-gradient(rgba(1,50,32,0.8), rgba(1,50,32,0.8)), url('hero.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 1.5s ease-out;
+}
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+header button {
+  background: #013220;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+header button:hover {
+  background: #01281c;
+
   color: white;
   font-size: 18px;
 }
@@ -63,31 +128,34 @@ header {
 
 /* Sections */
 section {
-  margin: 50px auto;
-  padding: 20px;
+
+  margin: 40px auto;
+  padding: 30px;
   width: 90%;
   max-width: 1000px;
-  background: rgba(255, 255, 255, 0.6);  /* Transparent white for overlay effect */
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px); /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.6); /* Opaque white overlay */
+  border-radius: 15px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  color: #013220;
+  animation: slideUp 1s ease-out;
 }
 
-/* Data Cards & Products with "Dissolve" (Glassmorphism) Effect */
+/* Glassmorphism for Data Cards & Products */
+
 .data-card, .product {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  margin: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* Hover Animation for Cards */
 .data-card:hover, .product:hover {
   transform: scale(1.03);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 /* Product Images */
@@ -95,13 +163,20 @@ section {
   width: 150px;
   height: auto;
   border-radius: 10px;
+
+  margin-bottom: 10px;
+
 }
 
 /* Cart Styles */
 #cart {
   margin-top: 20px;
   text-align: left;
-  display: inline-block;
+
+}
+#cart h3 {
+  margin-bottom: 10px;
+
 }
 
 /* Video Container */
@@ -110,7 +185,9 @@ section {
   max-width: 560px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+
 }
 
 /* Quiz Section */
@@ -118,9 +195,11 @@ section {
   margin-top: 20px;
   text-align: left;
   padding: 20px;
-  background: rgba(255,255,255,0.8);
+
+  background: rgba(255,255,255,0.85);
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
 }
 .quiz ul {
   list-style: none;
@@ -133,33 +212,174 @@ section {
   margin-left: 10px;
 }
 
+
+/* Timeline Section */
+.timeline {
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.timeline ul {
+  list-style: none;
+  padding: 0;
+}
+.timeline li {
+  margin: 10px 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.timeline .date {
+  font-weight: 700;
+  color: #013220;
+  min-width: 60px;
+}
+.timeline .event {
+  flex: 1;
+}
+
+/* Resource Library Section */
+.resources {
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.resources ul {
+  list-style: none;
+  padding: 0;
+}
+.resources li {
+  margin: 10px 0;
+}
+.resources a {
+  color: #013220;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+.resources a:hover {
+  color: #cddc39;
+  text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq {
+  margin-top: 30px;
+  text-align: left;
+  padding: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.faq-item {
+  margin-bottom: 15px;
+}
+.faq-question {
+  width: 100%;
+  background: #013220;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+.faq-question:hover {
+  background: #01281c;
+}
+.faq-answer {
+  display: none;
+  padding: 12px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 5px;
+  margin-top: 5px;
+  color: #013220;
+}
+
 /* Footer */
 footer {
   background: #333;
-  color: white;
-  padding: 10px;
-  margin-top: 20px;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  margin-top: 30px;
+
 }
 
 /* Inputs & Buttons */
 input[type="file"],
 input[type="text"] {
+
   padding: 10px;
   margin: 10px;
+
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 button {
   background: #013220;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
+
+  color: #fff;
+  padding: 12px 24px;
+  margin: 10px 0;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+
 }
 button:hover {
   background: #01281c;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* Extra Enhancements (Append to your existing CSS) */
+
+/* Bounce animation on button hover */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Add bounce effect on hover without altering existing button styles */
+button:hover {
+  animation: bounce 0.5s;
+}
+
+/* Add a glow effect to navigation links on hover */
+nav ul li a {
+  transition: text-shadow 0.3s ease;
+}
+nav ul li a:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Fixed background for hero section for subtle parallax effect */
+header {
+  background-attachment: fixed;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
 /* Timeline Section */
 .timeline {

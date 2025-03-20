@@ -80,7 +80,7 @@ function updateCartUI() {
   cartItems.innerHTML = "";
   cart.forEach((item, index) => {
     const li = document.createElement('li');
-    li.innerText = ${index + 1}. ${item};
+    li.innerText = `${index + 1}. ${item}`;
     cartItems.appendChild(li);
   });
 }
@@ -153,6 +153,21 @@ function checkQuiz() {
     resultText = "Please select an answer.";
   }
   
+
+  // Initialize the Analytics Dashboard on page load
+  window.onload = function() {
+    renderAnalyticsChart();
+  };
+  // ----- FAQ Toggle Function -----
+function toggleFAQ(faqId) {
+  const answerDiv = document.getElementById(faqId);
+  if (answerDiv.style.display === "block") {
+    answerDiv.style.display = "none";
+  } else {
+    answerDiv.style.display = "block";
+  }
+}
+
   document.getElementById('quizResult').innerText = resultText;
 }
 
@@ -172,5 +187,4 @@ if (answerDiv.style.display === "block") {
   answerDiv.style.display = "none";
 } else {
   answerDiv.style.display = "block";
-}
-}
+}}
