@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navigation (you can reuse the same nav) -->
+  <!-- Navigation -->
   <nav>
     <div class="logo">🐄 Gaumitra</div>
     <ul>
@@ -23,19 +23,19 @@
     </ul>
   </nav>
 
-  <!-- Education Section (Separate Page) -->
+  <!-- Education Main Section -->
   <section id="education">
     <h2>🎓 Education & Quizzes</h2>
-    <p>Watch our educational video and test your knowledge with a quick quiz!</p>
+    <p>Learn about Indian cow conservation through videos, quizzes, timelines, resources, and FAQs!</p>
     
-    <!-- Embedded Educational Video (Replace VIDEO_ID with actual ID) -->
+    <!-- Embedded Educational Video -->
     <div class="video-container">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
         title="Educational Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
     </div>
 
-    <!-- Simple Quiz -->
+    <!-- Quiz Section -->
     <div class="quiz">
       <h3>Quiz: Which Indian cow breed is known for its high milk yield?</h3>
       <ul>
@@ -58,6 +58,66 @@
       </ul>
       <button onclick="checkQuiz()">Submit Answer</button>
       <div id="quizResult"></div>
+    </div>
+
+    <!-- Interactive Timeline Section -->
+    <div class="timeline">
+      <h3>Interactive Timeline: Key Milestones in Cow Conservation</h3>
+      <ul>
+        <li>
+          <span class="date">1950</span>
+          <span class="event">Launch of initial conservation programs</span>
+        </li>
+        <li>
+          <span class="date">1970</span>
+          <span class="event">Establishment of Gaushalas (Cow Shelters)</span>
+        </li>
+        <li>
+          <span class="date">1990</span>
+          <span class="event">Research on indigenous breeds intensifies</span>
+        </li>
+        <li>
+          <span class="date">2010</span>
+          <span class="event">Introduction of AI and IoT in monitoring</span>
+        </li>
+        <li>
+          <span class="date">2020</span>
+          <span class="event">Blockchain integration for transparent sponsorship</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Resource Library Section -->
+    <div class="resources">
+      <h3>Resource Library</h3>
+      <ul>
+        <li><a href="resources/brochure.pdf" download>Download Conservation Brochure (PDF)</a></li>
+        <li><a href="resources/research_paper.pdf" download>Read Latest Research Paper</a></li>
+        <li><a href="resources/cow_history.pdf" download>History of Indigenous Cow Breeds</a></li>
+      </ul>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq">
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ('faq1')">Why is conserving indigenous cow breeds important?</button>
+        <div class="faq-answer" id="faq1">
+          <p>Conserving indigenous cow breeds helps maintain biodiversity, supports sustainable agriculture, and preserves cultural heritage.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ('faq2')">How does blockchain help in cow sponsorship?</button>
+        <div class="faq-answer" id="faq2">
+          <p>Blockchain creates transparent, tamper-proof records that help track cow ownership and ensure fair sponsorship practices.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ('faq3')">What role does AI play in cow conservation?</button>
+        <div class="faq-answer" id="faq3">
+          <p>AI assists in breed identification, health monitoring, and predictive analytics, thereby optimizing conservation strategies.</p>
+        </div>
+      </div>
     </div>
   </section>
 
