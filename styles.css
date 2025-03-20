@@ -7,6 +7,7 @@
 
 /* Base Styles & Background */
 body {
+
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -17,6 +18,7 @@ body {
 }
 
 /* White overlay with subtle texture */
+
 body::before {
   content: "";
   position: fixed;
@@ -24,6 +26,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
+
   background: rgba(255, 255, 255, 0.8);
   z-index: -1;
   /* Optionally add a subtle noise texture */
@@ -104,10 +107,22 @@ header button {
 }
 header button:hover {
   background: #01281c;
+
+  color: white;
+  font-size: 18px;
+}
+
+/* Hero Section */
+header {
+  background: url('hero.jpg') center/cover no-repeat;
+  color: white;
+  padding: 50px;
+  font-size: 24px;
 }
 
 /* Sections */
 section {
+
   margin: 40px auto;
   padding: 30px;
   width: 90%;
@@ -121,10 +136,12 @@ section {
 }
 
 /* Glassmorphism for Data Cards & Products */
+
 .data-card, .product {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   padding: 20px;
+
   margin: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
@@ -140,16 +157,20 @@ section {
   width: 150px;
   height: auto;
   border-radius: 10px;
+
   margin-bottom: 10px;
+
 }
 
 /* Cart Styles */
 #cart {
   margin-top: 20px;
   text-align: left;
+
 }
 #cart h3 {
   margin-bottom: 10px;
+
 }
 
 /* Video Container */
@@ -158,7 +179,9 @@ section {
   max-width: 560px;
   border-radius: 10px;
   overflow: hidden;
+
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+
 }
 
 /* Quiz Section */
@@ -166,9 +189,11 @@ section {
   margin-top: 20px;
   text-align: left;
   padding: 20px;
+
   background: rgba(255,255,255,0.85);
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
 }
 .quiz ul {
   list-style: none;
@@ -180,6 +205,7 @@ section {
 .quiz label {
   margin-left: 10px;
 }
+
 
 /* Timeline Section */
 .timeline {
@@ -279,18 +305,22 @@ footer {
   padding: 15px;
   text-align: center;
   margin-top: 30px;
+
 }
 
 /* Inputs & Buttons */
 input[type="file"],
 input[type="text"] {
-  padding: 12px;
-  margin: 10px 0;
+
+  padding: 10px;
+  margin: 10px;
+
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 button {
   background: #013220;
+
   color: #fff;
   padding: 12px 24px;
   margin: 10px 0;
@@ -299,10 +329,12 @@ button {
   border-radius: 5px;
   font-size: 1rem;
   transition: background 0.3s ease;
+
 }
 button:hover {
   background: #01281c;
 }
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -342,4 +374,88 @@ header {
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+/* Timeline Section */
+.timeline {
+margin-top: 30px;
+text-align: left;
+padding: 20px;
+background: rgba(255, 255, 255, 0.8);
+border-radius: 10px;
+box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.timeline ul {
+list-style: none;
+padding: 0;
+}
+.timeline li {
+margin: 10px 0;
+display: flex;
+gap: 20px;
+align-items: center;
+}
+.timeline .date {
+font-weight: bold;
+color: #013220;
+min-width: 60px;
+}
+.timeline .event {
+flex: 1;
+}
+
+/* Resource Library Section */
+.resources {
+margin-top: 30px;
+text-align: left;
+padding: 20px;
+background: rgba(255, 255, 255, 0.8);
+border-radius: 10px;
+box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.resources ul {
+list-style: none;
+padding: 0;
+}
+.resources li {
+margin: 10px 0;
+}
+.resources a {
+color: #013220;
+text-decoration: none;
+font-weight: bold;
+}
+.resources a:hover {
+text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq {
+margin-top: 30px;
+text-align: left;
+padding: 20px;
+background: rgba(255, 255, 255, 0.8);
+border-radius: 10px;
+box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.faq-item {
+margin-bottom: 10px;
+}
+.faq-question {
+width: 100%;
+background: #013220;
+color: white;
+border: none;
+padding: 10px;
+text-align: left;
+cursor: pointer;
+border-radius: 5px;
+font-size: 16px;
+}
+.faq-answer {
+display: none;
+padding: 10px;
+background: rgba(255,255,255,0.9);
+border-radius: 5px;
+margin-top: 5px;
+color: #013220;
 }
