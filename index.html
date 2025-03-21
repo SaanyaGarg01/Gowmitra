@@ -22,7 +22,7 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#identify">AI Breed</a></li>
-      <li><a href="#clinics">Nearby Clinics</a></li>
+      <li><a href="#health">Cow Health</a></li>
       <li><a href="#monitor">IoT Monitoring</a></li>
       <li><a href="#blockchain">Blockchain</a></li>
       <li><a href="#marketplace">Marketplace</a></li>
@@ -52,14 +52,15 @@
       <div id="result"></div>
     </div>
 
-  <!-- Cow Health Diagnosis -->
-  <section id="health">
-    <h2>🩺 AI Cow Health Diagnosis</h2>
-    <p>Upload an image or enter symptoms to diagnose common issues.</p>
-    <input type="file" id="healthImageUpload" />
-    <input type="text" id="symptomInput" placeholder="Enter symptoms (e.g., lethargy, fever)" />
-    <button onclick="diagnoseHealth()">Diagnose Health</button>
-    <div id="healthResult"></div>
+    <!-- Cow Health Diagnosis -->
+    <div id="health">
+      <h3>🩺 AI Cow Health Diagnosis</h3>
+      <p>Upload an image or enter symptoms to diagnose common issues.</p>
+      <input type="file" id="healthImageUpload">
+      <input type="text" id="symptomInput" placeholder="Enter symptoms (e.g., lethargy, fever)">
+      <button onclick="diagnoseHealth()">Diagnose Health</button>
+      <div id="healthResult"></div>
+    </div>
   </section>
 
   <!-- IoT Monitoring Section -->
@@ -113,19 +114,11 @@
     <div id="chatResult"></div>
   </section>
 
-  <!-- Analytics Dashboard -->
-  <section id="analytics">
-    <h2>📊 Data Analytics Dashboard</h2>
-    <p>Real-time insights on cow populations and milk quality.</p>
-    <canvas id="analyticsChart" width="400" height="200"></canvas>
-  </section>
-
   <!-- Footer -->
   <footer>
     <p>© 2025 Gaumitra | All Rights Reserved</p>
   </footer>
 
   <script src="script.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
 </body>
 </html>
