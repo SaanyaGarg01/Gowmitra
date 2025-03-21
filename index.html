@@ -113,6 +113,56 @@
     <button onclick="chatbotResponse()">Send</button>
     <div id="chatResult"></div>
   </section>
+  <!-- Analytics Dashboard -->
+<section id="analytics">
+  <h2>📊 Data Analytics Dashboard</h2>
+  <p>Real-time insights on cow populations and milk quality.</p>
+  <canvas id="analyticsChart" width="400" height="200"></canvas>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById("analyticsChart").getContext("2d");
+    const analyticsChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [
+          "1951", "1956", "1961", "1966", "1972", "1977", "1982", "1987", "1992", "1997", "2003", "2007", "2012", "2019"
+        ],
+        datasets: [
+          {
+            label: "Cow Population (in millions)",
+            data: [
+              155.3, 158.7, 175.6, 176.2, 178.3, 180.0, 192.5, 199.7, 204.6, 198.9, 185.2, 199.1, 190.9, 192.5
+            ],
+            backgroundColor: "rgba(54, 162, 235, 0.6)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1
+          },
+          {
+            label: "Average Milk Yield (Liters)",
+            data: [
+              3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.3, 5.7, 6.1, 6.4, 6.7, 7.2, 7.5, 8.0
+            ],
+            backgroundColor: "rgba(255, 99, 132, 0.6)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>
+
+
 
   <!-- Footer -->
   <footer>
