@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz - Gaumitra</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <h2>🐄 Indian Cow Conservation Quiz</h2>
+    <h3 id="question-title">Question 1</h3>
+    <p id="question-text"></p>
+    <ul id="quiz-options"></ul>
+    <p>⏳ Time Remaining: <span id="timer">25:00</span></p>
+    <button onclick="prevQuestion()" id="prev-btn" style="display: none;">⬅ Previous</button>
+    <button onclick="nextQuestion()" id="next-btn">Next ➡</button>
+    <button onclick="submitQuiz()" id="submit-btn" style="display: none;">Submit</button>
+    <div id="quizResult"></div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "Which Indian cow breed has the highest milk yield?", options: ["Gir", "Sahiwal", "Kankrej", "Red Sindhi"], answer: "Sahiwal" },
+      { q: "Where is the Gir breed mainly found?", options: ["Punjab", "Gujarat", "Maharashtra", "Rajasthan"], answer: "Gujarat" },
+      { q: "What is the average lifespan of an Indian cow?", options: ["10-15 years", "15-20 years", "20-25 years", "25-30 years"], answer: "15-20 years" },
+      { q: "Which cow breed is famous for its resistance to diseases?", options: ["Red Sindhi", "Tharparkar", "Ongole", "Hallikar"], answer: "Tharparkar" },
+      { q: "What does AI stand for in cow conservation?", options: ["Artificial Intelligence", "Automated Identification", "Animal Inspection", "Augmented Imaging"], answer: "Artificial Intelligence" },
+      { q: "Which of these is NOT an indigenous Indian cow breed?", options: ["Jersey", "Nagori", "Hariana", "Deoni"], answer: "Jersey" },
+      { q: "Blockchain in cow conservation helps in?", options: ["Tracking ownership", "Monitoring health", "Improving milk yield", "Controlling population"], answer: "Tracking ownership" },
+      { q: "What is A2 milk?", options: ["Milk with high fat", "Milk with A2 beta-casein protein", "Synthetic milk", "Milk with added vitamins"], answer: "Milk with A2 beta-casein protein" },
+      { q: "Which breed is used for plowing fields?", options: ["Hallikar", "Sahiwal", "Tharparkar", "Gir"], answer: "Hallikar" },
+      { q: "Which state has the highest cow population in India?", options: ["Uttar Pradesh", "Madhya Pradesh", "Rajasthan", "Gujarat"], answer: "Uttar Pradesh" },
+      { q: "Which breed is often seen in bull races?", options: ["Amrit Mahal", "Nagori", "Malvi", "Deoni"], answer: "Nagori" },
+      { q: "Which cow breed is native to Tamil Nadu?", options: ["Kangayam", "Hariana", "Punganur", "Rathi"], answer: "Kangayam" },
+      { q: "How does IoT help in cow conservation?", options: ["Monitoring health", "Tracking movement", "Detecting diseases early", "All of the above"], answer: "All of the above" },
+      { q: "Which component in cow milk improves immunity?", options: ["Vitamin A", "Calcium", "Zinc", "Lactose"], answer: "Zinc" },
+      { q: "Which breed is known as the 'mini cow' of India?", options: ["Punganur", "Hallikar", "Kangayam", "Red Sindhi"], answer: "Punganur" },
+      { q: "Which factor affects cow milk yield the most?", options: ["Climate", "Diet", "Genetics", "All of the above"], answer: "All of the above" },
+      { q: "What is the ideal temperature for a cow shed?", options: ["10-15°C", "15-25°C", "25-35°C", "35-45°C"], answer: "15-25°C" },
+      { q: "What is the main benefit of conserving indigenous cow breeds?", options: ["Better milk quality", "Disease resistance", "Sustainable farming", "All of the above"], answer: "All of the above" },
+      { q: "Which breed is known for its endurance in hot climates?", options: ["Tharparkar", "Kangayam", "Sahiwal", "Gir"], answer: "Tharparkar" },
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let timeLeft = 25 * 60; 
+    let timerInterval;
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById("timer").innerText = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          submitQuiz();
+        }
+        timeLeft--;
+      }, 1000);
+    }
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      document.getElementById("question-title").innerText = `Question ${currentQuestion + 1}`;
+      document.getElementById("question-text").innerText = question.q;
+      const optionsList = document.getElementById("quiz-options");
+      optionsList.innerHTML = question.options.map((opt, i) => 
+        `<li><input type="radio" name="quiz" value="${opt}" id="opt${i}"><label for="opt${i}">${opt}</label></li>`
+      ).join('');
+
+      document.getElementById("prev-btn").style.display = currentQuestion > 0 ? "inline-block" : "none";
+      document.getElementById("next-btn").style.display = currentQuestion < questions.length - 1 ? "inline-block" : "none";
+      document.getElementById("submit-btn").style.display = currentQuestion === questions.length - 1 ? "inline-block" : "none";
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      loadQuestion();
+    }
+
+    function prevQuestion() {
+      currentQuestion--;
+      loadQuestion();
+    }
+
+    function submitQuiz() {
+      clearInterval(timerInterval);
+      document.getElementById("quizResult").innerHTML = `<h3>Quiz Completed!</h3><p>Your Score: ${score}/${questions.length}</p>`;
+    }
+
+    window.onload = () => {
+      loadQuestion();
+      startTimer();
+    };
+  </script>
+</body>
+</html>

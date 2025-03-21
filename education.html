@@ -12,78 +12,42 @@
     <div class="logo">🐄 Gaumitra</div>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#identify">AI Breed</a></li>
-      <li><a href="index.html#health">Cow Health</a></li>
-      <li><a href="index.html#monitor">IoT Monitoring</a></li>
-      <li><a href="index.html#blockchain">Blockchain</a></li>
-      <li><a href="index.html#marketplace">Marketplace</a></li>
-      <li><a href="index.html#chatbot">Chatbot</a></li>
-      <li><a href="index.html#analytics">Analytics</a></li>
       <li><a href="education.html">Education</a></li>
     </ul>
   </nav>
 
-  <!-- Education Main Section -->
+  <!-- Education Section -->
   <section id="education">
     <h2>🎓 Education & Quizzes</h2>
-    <p>Learn about Indian cow conservation through videos, quizzes, timelines, resources, and FAQs!</p>
-    
+    <p>Learn about Indian cow conservation through videos, quizzes, and FAQs!</p>
+
     <!-- Embedded Educational Video -->
     <div class="video-container">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
-        title="Educational Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
+        title="Educational Video" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Quiz Section -->
-    <div class="quiz">
-      <h3>Quiz: Which Indian cow breed is known for its high milk yield?</h3>
-      <ul>
-        <li>
-          <input type="radio" name="quiz" value="Gir" id="q1">
-          <label for="q1">Gir</label>
-        </li>
-        <li>
-          <input type="radio" name="quiz" value="Sahiwal" id="q2">
-          <label for="q2">Sahiwal</label>
-        </li>
-        <li>
-          <input type="radio" name="quiz" value="Kankrej" id="q3">
-          <label for="q3">Kankrej</label>
-        </li>
-        <li>
-          <input type="radio" name="quiz" value="Red Sindhi" id="q4">
-          <label for="q4">Red Sindhi</label>
-        </li>
-      </ul>
-      <button onclick="checkQuiz()">Submit Answer</button>
-      <div id="quizResult"></div>
+    <!-- Quiz Section (Clickable Card) -->
+    <div class="quiz-container">
+      <button class="quiz-button" onclick="openQuiz()">📖 Take the Quiz!</button>
     </div>
+  
+    <script>
+      function openQuiz() {
+        window.open("quiz.html", "QuizWindow", "width=2000,height=6000,scrollbars=yes");
+      }
+    </script>
+
 
     <!-- Interactive Timeline Section -->
     <div class="timeline">
       <h3>Interactive Timeline: Key Milestones in Cow Conservation</h3>
       <ul>
-        <li>
-          <span class="date">1950</span>
-          <span class="event">Launch of initial conservation programs</span>
-        </li>
-        <li>
-          <span class="date">1970</span>
-          <span class="event">Establishment of Gaushalas (Cow Shelters)</span>
-        </li>
-        <li>
-          <span class="date">1990</span>
-          <span class="event">Research on indigenous breeds intensifies</span>
-        </li>
-        <li>
-          <span class="date">2010</span>
-          <span class="event">Introduction of AI and IoT in monitoring</span>
-        </li>
-        <li>
-          <span class="date">2020</span>
-          <span class="event">Blockchain integration for transparent sponsorship</span>
-        </li>
+        <li><span class="date">1950</span> Launch of conservation programs</li>
+        <li><span class="date">1970</span> Establishment of Gaushalas (Cow Shelters)</li>
+        <li><span class="date">1990</span> Research on indigenous breeds intensifies</li>
+        <li><span class="date">2010</span> Introduction of AI and IoT in monitoring</li>
+        <li><span class="date">2020</span> Blockchain integration for transparent sponsorship</li>
       </ul>
     </div>
 
@@ -112,12 +76,6 @@
           <p>Blockchain creates transparent, tamper-proof records that help track cow ownership and ensure fair sponsorship practices.</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ('faq3')">What role does AI play in cow conservation?</button>
-        <div class="faq-answer" id="faq3">
-          <p>AI assists in breed identification, health monitoring, and predictive analytics, thereby optimizing conservation strategies.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -126,6 +84,10 @@
     <p>© 2025 Gaumitra | All Rights Reserved</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function openQuiz() {
+      window.open("quiz.html", "QuizWindow", "width=800,height=600,scrollbars=yes");
+    }
+  </script>
 </body>
 </html>
