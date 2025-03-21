@@ -459,3 +459,67 @@ border-radius: 5px;
 margin-top: 5px;
 color: #013220;
 }
+/* Updated Button Hover Effect */
+button:hover {
+  animation: bounce 0.5s;
+  background: linear-gradient(135deg, #013220, #016d40);
+  box-shadow: 0 0 15px rgba(1, 109, 64, 0.7);
+}
+
+/* Enhanced Hover Effect for Cards */
+.data-card:hover, .product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Updated Nearby Clinics Section */
+#nearby-clinics {
+  text-align: center;
+  margin: 20px auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#nearby-clinics:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+#nearby-clinics button {
+  background: #016d40;
+  padding: 14px 22px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+#nearby-clinics button:hover {
+  background: #015d38;
+}
+
+/* Fade-in Animation for Sections */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+section, .data-card, .product, #nearby-clinics {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Smooth Shadow Transition */
+.timeline, .resources, .faq {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.timeline:hover, .resources:hover, .faq:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}

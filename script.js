@@ -188,3 +188,54 @@ if (answerDiv.style.display === "block") {
 } else {
   answerDiv.style.display = "block";
 }}
+
+function findNearbyClinics() {
+  if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+  }
+  navigator.geolocation.getCurrentPosition(success, error);
+}
+
+function success(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const clinicList = document.getElementById("clinic-list");
+  clinicList.innerHTML = "<p>Loading nearby clinics...</p>";
+
+  const map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: latitude, lng: longitude },
+      zoom: 14,
+  });
+
+  const request = {
+      location: new google.maps.LatLng(latitude, longitude),
+      radius: 5000,  // 5km radius
+      type: ["veterinary_care"]
+  };
+
+  const service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, (results, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+          clinicList.innerHTML = "";
+          results.forEach((clinic, index) => {
+              let li = document.createElement("li");
+              let link = document.createElement("a");
+              link.href = `https://www.google.com/maps/search/?api=1&query=${clinic.geometry.location.lat()},${clinic.geometry.location.lng()}`;
+              link.target = "_blank";
+              link.innerText = `${index + 1}. ${clinic.name} - ${clinic.vicinity}`;
+              li.appendChild(link);
+              clinicList.appendChild(li);
+          });
+      } else {
+          clinicList.innerHTML = "<p>No nearby animal clinics found.</p>";
+      }
+  });
+}
+
+function error() {
+  alert("Unable to retrieve your location.");
+}
+
+
+
