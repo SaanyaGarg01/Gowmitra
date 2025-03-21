@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Gaumitra</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Keep the same CSS file -->
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Frequently Asked Questions</h1>
+    </header>
+
+    <section class="faq">
+        
+        <div class="faq-item">
+            <button class="faq-question">What is Gaumitra?</button>
+            <div class="faq-answer">
+                <p>Gaumitra is a smart cow conservation platform that helps farmers and consumers by providing IoT-based cow monitoring, AI-powered milk quality testing, and a marketplace for cow products.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does the NFT-based cow ownership work?</button>
+            <div class="faq-answer">
+                <p>Gaumitra uses blockchain technology to provide secure and verifiable cow ownership records. Users can sponsor or own a cow through NFTs, ensuring transparency and security.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Where can I find nearby veterinary clinics?</button>
+            <div class="faq-answer">
+                <p>You can use the "Find Nearby Clinics" feature on our platform to locate veterinary clinics closest to you.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is Gaumitra free to use?</button>
+            <div class="faq-answer">
+                <p>Yes! Most of Gaumitra's services are free. However, certain advanced features, such as premium analytics and blockchain ownership, may require a small fee.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does the AI-powered milk quality testing work?</button>
+            <div class="faq-answer">
+                <p>Our AI model analyzes milk samples using image recognition and sensor data to check for purity, nutritional value, and contamination, ensuring high-quality dairy products.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can I sell cow products on Gaumitra?</button>
+            <div class="faq-answer">
+                <p>Yes! Farmers and dairy businesses can list their products on our marketplace, reaching a wider audience interested in organic and sustainable cow-based products.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What types of cow products can be sold?</button>
+            <div class="faq-answer">
+                <p>You can sell products like organic milk, ghee, cheese, dung-based fertilizers, cow urine-based medicinal products, and traditional Indian dairy items.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does the AI Chatbot help farmers?</button>
+            <div class="faq-answer">
+                <p>Our AI chatbot provides real-time support on cow health, breeding, legal policies, and best practices in dairy farming. It also answers consumer queries related to cow-based products.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">What is the AI-powered selective breeding program?</button>
+            <div class="faq-answer">
+                <p>Our AI system analyzes genetic data and breeding patterns to recommend selective breeding strategies, ensuring the conservation of pure and indigenous cow breeds.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How can I contribute to cow conservation?</button>
+            <div class="faq-answer">
+                <p>You can contribute by adopting a cow through sponsorship, donating to cow shelters, purchasing organic dairy products, or spreading awareness about ethical dairy farming.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How can I track the health of my cow?</button>
+            <div class="faq-answer">
+                <p>Gaumitra's IoT-based Smart Gaushala Monitoring system tracks vital health parameters, feeding patterns, and movement using sensors, providing real-time data to farmers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does gamification work on Gaumitra?</button>
+            <div class="faq-answer">
+                <p>Users can earn rewards and badges for actions like adopting cows, purchasing products, referring friends, or engaging in conservation initiatives, making the platform more interactive.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How does Gaumitra support government policies?</button>
+            <div class="faq-answer">
+                <p>We provide a data analytics dashboard that helps policymakers analyze trends in dairy farming, cow conservation, and rural development, aiding in better policy formulation.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const questions = document.querySelectorAll(".faq-question");
+
+            questions.forEach((question) => {
+                question.addEventListener("click", function () {
+                    const answer = this.nextElementSibling;
+                    if (answer.style.display === "block") {
+                        answer.style.display = "none";
+                    } else {
+                        answer.style.display = "block";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

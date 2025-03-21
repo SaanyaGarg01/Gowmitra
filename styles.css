@@ -529,3 +529,116 @@ section, .data-card, .product, #nearby-clinics {
 .timeline:hover, .resources:hover, .faq:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+
+
+
+/* Marketplace Styles */
+#marketplace {
+  text-align: center;
+  padding: 40px;
+}
+
+.filter-buttons {
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  background: #013220;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background: #01281c;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 200px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  color: #013220;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product-card p {
+  color: #555;
+  font-size: 16px;
+}
+
+.add-to-cart {
+  background: #013220;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background: #01281c;
+}
+/* FAQ Page Styling */
+.faq {
+  margin: 40px auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  width: 100%;
+  background: #013220;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #01281c;
+}
+
+.faq-answer {
+  display: none;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  margin-top: 5px;
+  color: #013220;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | Gaumitra</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Gaumitra</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Explore the Best Cow-Based Products</h1>
+        <p>Buy organic dairy, fertilizers, Ayurvedic medicines, and eco-friendly products.</p>
+    </header>
+
+    <section id="marketplace">
+        <h2>Product Categories</h2>
+        
+        <div class="filter-buttons">
+            <button onclick="filterProducts('all')">All</button>
+            <button onclick="filterProducts('dairy')">Dairy Products</button>
+            <button onclick="filterProducts('fertilizer')">Fertilizers</button>
+            <button onclick="filterProducts('medicine')">Ayurvedic Medicines</button>
+            <button onclick="filterProducts('handicraft')">Handicrafts</button>
+        </div>
+
+        <div class="product-grid">
+            <!-- Sample Products -->
+            <div class="product-card" data-category="dairy">
+                <img src="milk.jpg" alt="A2 Milk">
+                <h3>A2 Desi Cow Milk</h3>
+                <p>₹80 per liter</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="fertilizer">
+                <img src="cowdung.jpg" alt="Cow Dung Fertilizer">
+                <h3>Organic Cow Dung Fertilizer</h3>
+                <p>₹150 per bag</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="medicine">
+                <img src="panchagavya.jpg" alt="Panchagavya">
+                <h3>Panchagavya Ayurvedic Tonic</h3>
+                <p>₹250 per bottle</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="handicraft">
+                <img src="diyas.jpg" alt="Cow Dung Diyas">
+                <h3>Handmade Cow Dung Diyas</h3>
+                <p>₹50 per pack</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Gaumitra. All Rights Reserved.</p>
+    </footer>
+
+    <script src="marketplace.js"></script>
+</body>
+</html>
