@@ -5,8 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaumitra - Education</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Centered Quiz Button */
+    .quiz-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .quiz-button {
+      font-size: 20px;
+      padding: 15px 30px;
+      background-color: #ffcc00;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .quiz-button:hover {
+      background-color: #ffaa00;
+    }
+
+    /* Styling for the timeline */
+    .timeline ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline li {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+      margin-bottom: 10px;
+    }
+
+    /* Styling for the pop-up */
+    .popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      width: 50%;
+      text-align: center;
+    }
+
+    .popup button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Dark background overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <nav>
     <div class="logo">🐄 Gaumitra</div>
@@ -27,28 +95,38 @@
         title="Educational Video" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Quiz Section (Clickable Card) -->
+    <!-- Quiz Section -->
     <div class="quiz-container">
       <button class="quiz-button" onclick="openQuiz()">📖 Take the Quiz!</button>
     </div>
-  
-    <script>
-      function openQuiz() {
-        window.open("quiz.html", "QuizWindow", "width=2000,height=6000,scrollbars=yes");
-      }
-    </script>
-
 
     <!-- Interactive Timeline Section -->
     <div class="timeline">
       <h3>Interactive Timeline: Key Milestones in Cow Conservation</h3>
       <ul>
-        <li><span class="date">1950</span> Launch of conservation programs</li>
-        <li><span class="date">1970</span> Establishment of Gaushalas (Cow Shelters)</li>
-        <li><span class="date">1990</span> Research on indigenous breeds intensifies</li>
-        <li><span class="date">2010</span> Introduction of AI and IoT in monitoring</li>
-        <li><span class="date">2020</span> Blockchain integration for transparent sponsorship</li>
+        <li onclick="showPopup('In 1950, the government launched various conservation programs to protect indigenous cattle breeds.')">
+          <span class="date">1950</span> Launch of conservation programs
+        </li>
+        <li onclick="showPopup('Gaushalas were established in the 1970s to provide shelter and care for cows.')">
+          <span class="date">1970</span> Establishment of Gaushalas (Cow Shelters)
+        </li>
+        <li onclick="showPopup('By 1990, research on indigenous breeds intensified, leading to genetic improvement programs.')">
+          <span class="date">1990</span> Research on indigenous breeds intensifies
+        </li>
+        <li onclick="showPopup('In 2010, AI and IoT technologies were introduced to monitor cow health and milk production.')">
+          <span class="date">2010</span> Introduction of AI and IoT in monitoring
+        </li>
+        <li onclick="showPopup('By 2020, blockchain technology was integrated to ensure transparent sponsorship of cows.')">
+          <span class="date">2020</span> Blockchain integration for transparent sponsorship
+        </li>
       </ul>
+    </div>
+
+    <!-- Pop-up box -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+      <p id="popup-text"></p>
+      <button onclick="closePopup()">Close</button>
     </div>
 
     <!-- Resource Library Section -->
@@ -88,6 +166,27 @@
     function openQuiz() {
       window.open("quiz.html", "QuizWindow", "width=800,height=600,scrollbars=yes");
     }
+
+    function showPopup(message) {
+      document.getElementById("popup-text").innerText = message;
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function toggleFAQ(faqId) {
+      var answer = document.getElementById(faqId);
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    }
   </script>
+
 </body>
 </html>
