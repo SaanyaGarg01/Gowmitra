@@ -239,3 +239,39 @@ function error() {
 
 
 
+const cowBreeds = {
+  alambadi: {
+      name: "Alambadi (Tamil Nadu)",
+      description: "Alambadi cattle are known for their resilience and ability to withstand harsh climatic conditions. Primarily used for draught purposes."
+  },
+  amritMahal: {
+      name: "Amrit Mahal (Karnataka)",
+      description: "One of the oldest draught breeds in India, Amrit Mahal cattle are used for agricultural work and transportation."
+  },
+  bachaur: {
+      name: "Bachaur (Bihar)",
+      description: "Known for their strength and endurance, Bachaur cattle are commonly used in agricultural activities, especially plowing."
+  },
+  badri: {
+      name: "Badri (Uttarakhand)",
+      description: "Badri is a small-sized indigenous cow breed found in the Himalayan region. It provides high-quality A2 milk."
+  },
+  bargur: {
+      name: "Bargur (Tamil Nadu)",
+      description: "A draught breed known for its agility and stamina, Bargur cattle are used for farming and plowing in hilly regions."
+  },
+  belahi: {
+      name: "Belahi (Haryana, Chandigarh)",
+      description: "Belahi is a medium-sized breed with good milk production capacity, commonly used in dairy farming."
+  }
+};
+
+function showDetails(breed) {
+  document.getElementById("breed-title").innerText = cowBreeds[breed].name;
+  document.getElementById("breed-info").innerText = cowBreeds[breed].description;
+  document.getElementById("details-container").style.display = "block";
+}
+
+function hideDetails() {
+  document.getElementById("details-container").style.display = "none";
+}
