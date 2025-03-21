@@ -5,86 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaumitra - Education</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Centered Quiz Button */
+    .quiz-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .quiz-button {
+      font-size: 20px;
+      padding: 15px 30px;
+      background-color: #ffcc00;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .quiz-button:hover {
+      background-color: #ffaa00;
+    }
+
+    /* Styling for the timeline */
+    .timeline ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline li {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+      margin-bottom: 10px;
+    }
+
+    /* Styling for the pop-up */
+    .popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      width: 50%;
+      text-align: center;
+    }
+
+    .popup button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Dark background overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <nav>
     <div class="logo">🐄 Gaumitra</div>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#identify">AI Breed</a></li>
-      <li><a href="index.html#health">Cow Health</a></li>
-      <li><a href="index.html#monitor">IoT Monitoring</a></li>
-      <li><a href="index.html#blockchain">Blockchain</a></li>
-      <li><a href="index.html#marketplace">Marketplace</a></li>
-      <li><a href="index.html#chatbot">Chatbot</a></li>
-      <li><a href="index.html#analytics">Analytics</a></li>
       <li><a href="education.html">Education</a></li>
     </ul>
   </nav>
 
-  <!-- Education Main Section -->
+  <!-- Education Section -->
   <section id="education">
     <h2>🎓 Education & Quizzes</h2>
-    <p>Learn about Indian cow conservation through videos, quizzes, timelines, resources, and FAQs!</p>
-    
+    <p>Learn about Indian cow conservation through videos, quizzes, and FAQs!</p>
+
     <!-- Embedded Educational Video -->
     <div class="video-container">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
-        title="Educational Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
+        title="Educational Video" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <!-- Quiz Section -->
-    <div class="quiz">
-      <h3>Quiz: Which Indian cow breed is known for its high milk yield?</h3>
-      <ul>
-        <li>
-          <input type="radio" name="quiz" value="Gir" id="q1">
-          <label for="q1">Gir</label>
-        </li>
-        <li>
-          <input type="radio" name="quiz" value="Sahiwal" id="q2">
-          <label for="q2">Sahiwal</label>
-        </li>
-        <li>
-          <input type="radio" name="quiz" value="Kankrej" id="q3">
-          <label for="q3">Kankrej</label>
-        </li>
-        <li>
-          <input type="radio" name="quiz" value="Red Sindhi" id="q4">
-          <label for="q4">Red Sindhi</label>
-        </li>
-      </ul>
-      <button onclick="checkQuiz()">Submit Answer</button>
-      <div id="quizResult"></div>
+    <div class="quiz-container">
+      <button class="quiz-button" onclick="openQuiz()">📖 Take the Quiz!</button>
     </div>
 
     <!-- Interactive Timeline Section -->
     <div class="timeline">
       <h3>Interactive Timeline: Key Milestones in Cow Conservation</h3>
       <ul>
-        <li>
-          <span class="date">1950</span>
-          <span class="event">Launch of initial conservation programs</span>
+        <li onclick="showPopup('In 1950, the government launched various conservation programs to protect indigenous cattle breeds.')">
+          <span class="date">1950</span> Launch of conservation programs
         </li>
-        <li>
-          <span class="date">1970</span>
-          <span class="event">Establishment of Gaushalas (Cow Shelters)</span>
+        <li onclick="showPopup('Gaushalas were established in the 1970s to provide shelter and care for cows.')">
+          <span class="date">1970</span> Establishment of Gaushalas (Cow Shelters)
         </li>
-        <li>
-          <span class="date">1990</span>
-          <span class="event">Research on indigenous breeds intensifies</span>
+        <li onclick="showPopup('By 1990, research on indigenous breeds intensified, leading to genetic improvement programs.')">
+          <span class="date">1990</span> Research on indigenous breeds intensifies
         </li>
-        <li>
-          <span class="date">2010</span>
-          <span class="event">Introduction of AI and IoT in monitoring</span>
+        <li onclick="showPopup('In 2010, AI and IoT technologies were introduced to monitor cow health and milk production.')">
+          <span class="date">2010</span> Introduction of AI and IoT in monitoring
         </li>
-        <li>
-          <span class="date">2020</span>
-          <span class="event">Blockchain integration for transparent sponsorship</span>
+        <li onclick="showPopup('By 2020, blockchain technology was integrated to ensure transparent sponsorship of cows.')">
+          <span class="date">2020</span> Blockchain integration for transparent sponsorship
         </li>
       </ul>
+    </div>
+
+    <!-- Pop-up box -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+      <p id="popup-text"></p>
+      <button onclick="closePopup()">Close</button>
     </div>
 
     <!-- Resource Library Section -->
@@ -112,12 +154,6 @@
           <p>Blockchain creates transparent, tamper-proof records that help track cow ownership and ensure fair sponsorship practices.</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ('faq3')">What role does AI play in cow conservation?</button>
-        <div class="faq-answer" id="faq3">
-          <p>AI assists in breed identification, health monitoring, and predictive analytics, thereby optimizing conservation strategies.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -126,6 +162,31 @@
     <p>© 2025 Gaumitra | All Rights Reserved</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function openQuiz() {
+      window.open("quiz.html", "QuizWindow", "width=800,height=600,scrollbars=yes");
+    }
+
+    function showPopup(message) {
+      document.getElementById("popup-text").innerText = message;
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function toggleFAQ(faqId) {
+      var answer = document.getElementById(faqId);
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    }
+  </script>
+
 </body>
 </html>
