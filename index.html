@@ -22,12 +22,12 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="breed.html">Cow Breeds</a></li>
-      <li><a href="#health">Cow Health</a></li>
+      <li><a href="newsletter.html">Cow Health</a></li>
       <li><a href="#monitor">IoT Monitoring</a></li>
       <li><a href="#blockchain">Blockchain</a></li>
       <li><a href="marketplace.html">Marketplace</a></li>
       <li><a href="#chatbot">Chatbot</a></li>
-      <li><a href="#analytics">Analytics</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
       <li><a href="education.html">Education</a></li>
       <li><a href="faq.html">FAQ</a></li>  
     </ul>
@@ -115,13 +115,41 @@
   </section>
 
   <!-- AI Chatbot -->
-  <section id="chatbot">
-    <h2>🤖 AI Chatbot for Farmers</h2>
-    <p>Ask about cow breeds, diseases, and organic farming practices.</p>
-    <input type="text" id="chatInput" placeholder="Ask me anything...">
-    <button onclick="chatbotResponse()">Send</button>
-    <div id="chatResult"></div>
-  </section>
+  <style>
+    .chatbot-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #007bff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
+    }
+    .chatbot-icon:hover {
+        background-color: #0056b3;
+    }
+    .chatbot-icon img {
+        width: 35px;
+        height: 35px;
+    }
+  </style>
+  
+  <div class="chatbot-icon" onclick="openChatbot()">
+      <img src="https://cdn-icons-png.flaticon.com/512/2874/2874125.png" alt="Chatbot">
+  </div>
+  
+  <script>
+    function openChatbot() {
+        alert("Chatbot clicked! You can integrate your chatbot functionality here.");
+    }
+  </script>
+
   <!-- Analytics Dashboard -->
 <section id="analytics">
   <h2>📊 Data Analytics Dashboard</h2>
