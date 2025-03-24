@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-box {
+    height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bot {
+    background-color: #e1f5fe;
+    align-self: flex-start;
+}
+
+.user {
+    background-color: #c8e6c9;
+    align-self: flex-end;
+}
+
+.chat-input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+    gap: 5px; /* Adds spacing between elements */
+    gap: 5px; /* Adds spacing between elements */
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input {
+    flex: 2;
+}
+
+select {
+    flex: 1;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border: none;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* 🔉 Button Styling */
+.audio-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.audio-btn:hover {
+    color: #007bff;
+}
+
+/* Ensure buttons are properly aligned */
+#speech-btn {
+    flex: 0.5; /* Makes button smaller */
+    min-width: 40px; /* Ensures it stays visible */
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .chat-container {
+        width: 90%;
+    }
+    
+    .chat-message {
+        font-size: 13px;
+    }
+    
+    input, select, button {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
