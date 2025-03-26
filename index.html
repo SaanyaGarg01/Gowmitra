@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
   <title>Gaumitra - Smart Cow Conservation</title>
   
@@ -60,82 +61,153 @@
       <div id="result"></div>
     </div>
     <!-- Nearby Animal Clinics -->
-  <section id="clinics">
-    <h2>🏥 Find Nearby Animal Clinics</h2>
-    <p>Click the button below to find the nearest clinics for cow treatment.</p>
-    <button onclick="findNearbyClinics()">Find Clinics</button>
-    <ul id="clinic-list"></ul>
-    <div id="map"></div>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <style>
-        #map {
-            height: 400px; /* Ensure the map is visible */
-            width: 100%;
-            margin-top: 20px;
-        }
-    </style>
+    
  </head>
- <body>
  
-    <!-- Section for Nearby Cow Shelters -->
-    <section id="clinics">
-        <h2>🐄 Find Nearby Cow Shelters</h2>
-        <p>Click the button below to find the nearest cow shelters.</p>
-        <button onclick="findNearbyShelters()">Find Shelters</button>
-        
-        <!-- Map Display -->
-        <div id="map"></div>
-    </section>
- 
-    <!-- Leaflet.js JavaScript -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
- 
-    <script>
-        let map = L.map('map').setView([20.5937, 78.9629], 5); // Default center: India
- 
-        // Load OpenStreetMap Tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
- 
-        function findNearbyShelters() {
-            // Check if Geolocation is available
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    const userLat = position.coords.latitude;
-                    const userLng = position.coords.longitude;
- 
-                    // Move map to user location
-                    map.setView([userLat, userLng], 12);
- 
-                    // Add user location marker
-                    L.marker([userLat, userLng]).addTo(map)
-                        .bindPopup("📍 You are here!")
-                        .openPopup();
- 
-                    // Example Shelters (Replace with real data)
-                    const shelters = [
-                        { name: "Shelter 1", lat: userLat + 0.02, lng: userLng + 0.02 },
-                        { name: "Shelter 2", lat: userLat - 0.02, lng: userLng - 0.02 },
-                        { name: "Shelter 3", lat: userLat + 0.03, lng: userLng - 0.03 }
-                    ];
- 
-                    // Add shelters to map
-                    shelters.forEach(shelter => {
-                        L.marker([shelter.lat, shelter.lng]).addTo(map)
-                            .bindPopup(`🏠 ${shelter.name}`);
-                    });
- 
-                }, () => {
-                    alert("Geolocation access denied. Unable to find nearby shelters.");
-                });
-            } else {
-                alert("Geolocation is not supported by your browser.");
-            }
-        }
-    </script>
-  </section>
+ <style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+  }
+  h2 {
+      color: #2C3E50;
+  }
+  button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      background-color: #3498DB;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  button:hover {
+      background-color: #2980B9;
+  }
+ #shelter-map {
+      height: 400px;
+      width: 80%;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+  }
+  section {
+      margin-bottom: 50px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Section for Nearby Cow Clinics -->
+<section id="clinics">
+  <h2>🐄 Find Nearby Cow Clinics</h2>
+  <p>Click the button below to find the nearest cow clinics.</p>
+  <button onclick="findNearbyClinics()">Find Clinics</button>
+  
+  <!-- Map for Clinics -->
+  <div id="clinic-map"></div>
+</section>
+
+<!-- Section for Nearby Cow Shelters -->
+<section id="shelters">
+  <h2>🐄 Find Nearby Cow Shelters</h2>
+  <p>Click the button below to find the nearest cow shelters.</p>
+  <button onclick="findNearbyShelters()">Find Shelters</button>
+  
+  <!-- Map for Shelters -->
+  <div id="shelter-map"></div>
+</section>
+
+<!-- Leaflet.js Library -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Initialize Maps
+  let clinicMap = L.map('clinic-map').setView([20.5937, 78.9629], 5); // Default to India
+  let shelterMap = L.map('shelter-map').setView([20.5937, 78.9629], 5); // Default to India
+
+  // Load OpenStreetMap Tiles for Both Maps
+  
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+  }).addTo(shelterMap);
+
+  // Function to Find Nearby Clinics
+  function findNearbyClinics() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(position => {
+              const userLat = position.coords.latitude;
+              const userLng = position.coords.longitude;
+
+              // Move clinic map to user location
+              clinicMap.setView([userLat, userLng], 12);
+
+              // Add user location marker
+              L.marker([userLat, userLng]).addTo(clinicMap)
+                  .bindPopup("📍 You are here!")
+                  .openPopup();
+
+              // Example Clinics (Replace with real data)
+              const clinics = [
+                  { name: "Clinic 1", lat: userLat + 0.02, lng: userLng + 0.02 },
+                  { name: "Clinic 2", lat: userLat - 0.02, lng: userLng - 0.02 },
+                  { name: "Clinic 3", lat: userLat + 0.03, lng: userLng - 0.03 }
+              ];
+
+              // Add clinics to map
+              clinics.forEach(clinic => {
+                  L.marker([clinic.lat, clinic.lng]).addTo(clinicMap)
+                      .bindPopup(`🏥 ${clinic.name}`);
+              });
+
+          }, () => {
+              alert("Geolocation access denied. Unable to find nearby clinics.");
+          });
+      } else {
+          alert("Geolocation is not supported by your browser.");
+      }
+  }
+
+  // Function to Find Nearby Shelters
+  function findNearbyShelters() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(position => {
+              const userLat = position.coords.latitude;
+              const userLng = position.coords.longitude;
+
+              // Move shelter map to user location
+              shelterMap.setView([userLat, userLng], 12);
+
+              // Add user location marker
+              L.marker([userLat, userLng]).addTo(shelterMap)
+                  .bindPopup("📍 You are here!")
+                  .openPopup();
+
+              // Example Shelters (Replace with real data)
+              const shelters = [
+                  { name: "Shelter 1", lat: userLat + 0.02, lng: userLng + 0.02 },
+                  { name: "Shelter 2", lat: userLat - 0.02, lng: userLng - 0.02 },
+                  { name: "Shelter 3", lat: userLat + 0.03, lng: userLng - 0.03 }
+              ];
+
+              // Add shelters to map
+              shelters.forEach(shelter => {
+                  L.marker([shelter.lat, shelter.lng]).addTo(shelterMap)
+                      .bindPopup(`🏠 ${shelter.name}`);
+              });
+
+          }, () => {
+              alert("Geolocation access denied. Unable to find nearby shelters.");
+          });
+      } else {
+          alert("Geolocation is not supported by your browser.");
+      }
+  }
+</script>
 
     <!-- Cow Health Diagnosis -->
     <div id="health">
