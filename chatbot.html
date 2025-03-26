@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Cow Breed Info</title>
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="chat-message bot">
+                Hello! Ask me about cow breeds 🐄
+                <button class="audio-btn" onclick="playAudio('Hello! Ask me about cow breeds')">🔉</button>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="question" placeholder="Type your question..." />
+            <select id="language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="bn">Bengali</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="mr">Marathi</option>
+                <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value="pa">Punjabi</option>
+                <option value="or">Odia</option>
+            </select>
+            <button onclick="askQuestion()">Send</button>
+            <button id="speech-btn">🎤</button> <!-- Speech-to-text button -->
+            <button id="speech-btn">🎤</button>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
