@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <title>Gaumitra - Smart Cow Conservation</title>
+  
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- TensorFlow.js for AI functions -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+  <!-- Chart.js for Analytics Dashboard -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo" style="color: white;">
+      <img src="favicon.png" alt="Gaumitra Logo" style="height: 50px; vertical-align: middle;"> Gaumitra
+    </div>
+    
+    
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="breed.html">Cow Breeds</a></li>
+      <li><a href="newsletter.html">Cow Health</a></li>
+      <li><a href="#kanji-houses">kanji-houses</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="chatbot.html">Chatbot</a></li>
+      <li><a href="analytics.html">Analytics</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="faq.html">FAQ</a></li>  
+      <li><a href="index.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <h1 style="color: white;">Reviving Indian Cow Breeds for a Sustainable Future</h1>
+<p style="color: white;">Preserving heritage, promoting sustainability, and empowering farmers.</p>
+
+    <button onclick="learnMore()">Learn More</button>
+  </header>
+
+  <!-- AI & Health Sections -->
+  <section id="ai-tools">
+    <h2>🧠 AI-Powered Tools</h2>
+
+    <!-- AI Breed Detection -->
+    <div id="identify">
+      <h3>🐄 Cow Breed Identification</h3>
+      <p>Upload an image to detect the cow breed.</p>
+      <input type="file" id="imageUpload">
+      <button onclick="identifyBreed()">Identify Breed</button>
+      <div id="result"></div>
+    </div>
+    <!-- Nearby Animal Clinics -->
+
+    
+ </head>
+ 
+ <style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+  }
+  h2 {
+      color: #2C3E50;
+  }
+  button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      background-color: #3498DB;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  button:hover {
+      background-color: #2980B9;
+  }
+ #shelter-map {
+      height: 400px;
+      width: 80%;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+  }
+  section {
+      margin-bottom: 50px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Section for Nearby Cow Clinics -->
+<section id="clinics">
+  <h2>🐄 Find Nearby Cow Clinics</h2>
+  <p>Click the button below to find the nearest cow clinics.</p>
+  <button onclick="findNearbyClinics()">Find Clinics</button>
+  
+  <!-- Map for Clinics -->
+  <div id="clinic-map"></div>
+</section>
+
+<!-- Section for Nearby Cow Shelters -->
+<section id="shelters">
+  <h2>🐄 Find Nearby Cow Shelters</h2>
+  <p>Click the button below to find the nearest cow shelters.</p>
+  <button onclick="findNearbyShelters()">Find Shelters</button>
+  
+  <!-- Map for Shelters -->
+  <div id="shelter-map"></div>
+</section>
+
+<!-- Leaflet.js Library -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Initialize Maps
+  let clinicMap = L.map('clinic-map').setView([20.5937, 78.9629], 5); // Default to India
+  let shelterMap = L.map('shelter-map').setView([20.5937, 78.9629], 5); // Default to India
+
+  // Load OpenStreetMap Tiles for Both Maps
+  
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+  }).addTo(shelterMap);
+
+  // Function to Find Nearby Clinics
+  function findNearbyClinics() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(position => {
+              const userLat = position.coords.latitude;
+              const userLng = position.coords.longitude;
+
+              // Move clinic map to user location
+              clinicMap.setView([userLat, userLng], 12);
+
+              // Add user location marker
+              L.marker([userLat, userLng]).addTo(clinicMap)
+                  .bindPopup("📍 You are here!")
+                  .openPopup();
+
+              // Example Clinics (Replace with real data)
+              const clinics = [
+                  { name: "Clinic 1", lat: userLat + 0.02, lng: userLng + 0.02 },
+                  { name: "Clinic 2", lat: userLat - 0.02, lng: userLng - 0.02 },
+                  { name: "Clinic 3", lat: userLat + 0.03, lng: userLng - 0.03 }
+              ];
+
+              // Add clinics to map
+              clinics.forEach(clinic => {
+                  L.marker([clinic.lat, clinic.lng]).addTo(clinicMap)
+                      .bindPopup(`🏥 ${clinic.name}`);
+              });
+
+          }, () => {
+              alert("Geolocation access denied. Unable to find nearby clinics.");
+          });
+      } else {
+          alert("Geolocation is not supported by your browser.");
+      }
+  }
+
+  // Function to Find Nearby Shelters
+  function findNearbyShelters() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(position => {
+              const userLat = position.coords.latitude;
+              const userLng = position.coords.longitude;
+
+              // Move shelter map to user location
+              shelterMap.setView([userLat, userLng], 12);
+
+              // Add user location marker
+              L.marker([userLat, userLng]).addTo(shelterMap)
+                  .bindPopup("📍 You are here!")
+                  .openPopup();
+
+              // Example Shelters (Replace with real data)
+              const shelters = [
+                  { name: "Shelter 1", lat: userLat + 0.02, lng: userLng + 0.02 },
+                  { name: "Shelter 2", lat: userLat - 0.02, lng: userLng - 0.02 },
+                  { name: "Shelter 3", lat: userLat + 0.03, lng: userLng - 0.03 }
+              ];
+
+              // Add shelters to map
+              shelters.forEach(shelter => {
+                  L.marker([shelter.lat, shelter.lng]).addTo(shelterMap)
+                      .bindPopup(`🏠 ${shelter.name}`);
+              });
+
+          }, () => {
+              alert("Geolocation access denied. Unable to find nearby shelters.");
+          });
+      } else {
+          alert("Geolocation is not supported by your browser.");
+      }
+  }
+</script>
+
+    <!-- Cow Health Diagnosis -->
+    <div id="health">
+      <h3>🩺 AI Cow Health Diagnosis</h3>
+      <p>Upload an image or enter symptoms to diagnose common issues.</p>
+      <input type="file" id="healthImageUpload">
+      <input type="text" id="symptomInput" placeholder="Enter symptoms (e.g., lethargy, fever)">
+      <button onclick="diagnoseHealth()">Diagnose Health</button>
+      <div id="healthResult"></div>
+    </div>
+  </section>
+
+
+
+  <!-- Blockchain Sponsorship -->
+  <section id="kanji-houses">
+    <h2>🏠 Kanji Houses & Contact Information</h2>
+    <ul>
+        <li><strong>Uttar Pradesh:</strong>
+            <p>Gomati Gaushala, Lucknow - 📞 +91-9876543210</p>
+            <p>Shree Krishna Gaushala, Varanasi - 📞 +91-9123456781</p>
+            <p>Radha Govind Gaushala, Agra - 📞 +91-9988776611</p>
+        </li>
+        <li><strong>Gujarat:</strong>
+            <p>Gir Cow Shelter, Ahmedabad - 📞 +91-9123456789</p>
+            <p>Shree Kamdhenu Gaushala, Surat - 📞 +91-9871234598</p>
+            <p>Dwarka Gaushala, Dwarka - 📞 +91-9988665544</p>
+        </li>
+        <li><strong>Tamil Nadu:</strong>
+            <p>Kanchi Gaushala, Chennai - 📞 +91-9988776655</p>
+            <p>Arulmigu Kapaleeswarar Gaushala, Madurai - 📞 +91-9786543210</p>
+            <p>Coimbatore Goshala, Coimbatore - 📞 +91-8765432198</p>
+        </li>
+        <li><strong>Madhya Pradesh:</strong>
+            <p>Narmada Cow Sanctuary, Bhopal - 📞 +91-9871234567</p>
+            <p>Indore Gaushala, Indore - 📞 +91-9988776622</p>
+            <p>Shri Gopal Gaushala, Gwalior - 📞 +91-8765432101</p>
+        </li>
+        <li><strong>Maharashtra:</strong>
+            <p>Pune Gaushala, Pune - 📞 +91-8765432109</p>
+            <p>Shri Gokul Gaushala, Mumbai - 📞 +91-9876543234</p>
+            <p>Nashik Cow Shelter, Nashik - 📞 +91-9123456778</p>
+        </li>
+    </ul>
+</section>
+
+
+  <!-- Marketplace Section -->
+  <section id="marketplace">
+    <h2>🛒 Cow-Based Product Marketplace</h2>
+    <p>Support farmers by purchasing organic cow-based products.</p>
+    <div class="card-container">
+      <div class="product-card">
+        <img src="milk.jpg" alt="A2 Milk">
+        <h3>A2 Organic Milk</h3>
+        <button onclick="addToCart('A2 Organic Milk')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="fertilizer.jpg" alt="Organic Fertilizer">
+        <h3>Organic Cow Dung Fertilizer</h3>
+        <button onclick="addToCart('Organic Fertilizer')">Add to Cart</button>
+      </div>
+    </div>
+    <div id="cart">
+      <h3>Your Cart:</h3>
+      <ul id="cartItems"></ul>
+    </div>
+  </section>
+
+  <!-- AI Chatbot -->
+  <style>
+    .chatbot-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #007bff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
+    }
+    .chatbot-icon:hover {
+        background-color: #0056b3;
+    }
+    .chatbot-icon img {
+        width: 35px;
+        height: 35px;
+    }
+  </style>
+  
+  <div class="chatbot-icon" onclick="openChatbot()">
+      <img src="https://cdn-icons-png.flaticon.com/512/2874/2874125.png" alt="Chatbot">
+  </div>
+  
+  <script>
+    function openChatbot() {
+        window.location.href = "chatbot.html"; // Replace "chatbot.html" with the actual page you want to navigate to.
+    }
+</script>
+
+
+  <!-- Analytics Dashboard -->
+<section id="analytics">
+  <h2>📊 Data Analytics Dashboard</h2>
+  <p>Real-time insights on cow populations and milk quality.</p>
+  <canvas id="analyticsChart" width="400" height="200"></canvas>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById("analyticsChart").getContext("2d");
+    const analyticsChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [
+          "1951", "1956", "1961", "1966", "1972", "1977", "1982", "1987", "1992", "1997", "2003", "2007", "2012", "2019"
+        ],
+        datasets: [
+          {
+            label: "Cow Population (in millions)",
+            data: [
+              155.3, 158.7, 175.6, 176.2, 178.3, 180.0, 192.5, 199.7, 204.6, 198.9, 185.2, 199.1, 190.9, 192.5
+            ],
+            backgroundColor: "rgba(54, 162, 235, 0.6)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1
+          },
+          {
+            label: "Average Milk Yield (Liters)",
+            data: [
+              3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.3, 5.7, 6.1, 6.4, 6.7, 7.2, 7.5, 8.0
+            ],
+            backgroundColor: "rgba(255, 99, 132, 0.6)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gaumitra | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
