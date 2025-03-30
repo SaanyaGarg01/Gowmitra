@@ -3,74 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <title>Marketplace | Gaumitra</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <title>Cow-Based Product Marketplace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            padding: 15px;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .buy-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .buy-btn:hover {
+            background: #218838;
+        }
+    </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Gaumitra</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="marketplace.html">Marketplace</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
-    </nav>
+    <h2 style="text-align: center;">🛒 Cow-Based Product Marketplace</h2>
 
-    <header>
-        <h1>Explore the Best Cow-Based Products</h1>
-        <p>Buy organic dairy, fertilizers, Ayurvedic medicines, and eco-friendly products.</p>
-    </header>
-
-    <section id="marketplace">
-        <h2>Product Categories</h2>
-        
-        <div class="filter-buttons">
-            <button onclick="filterProducts('all')">All</button>
-            <button onclick="filterProducts('dairy')">Dairy Products</button>
-            <button onclick="filterProducts('fertilizer')">Fertilizers</button>
-            <button onclick="filterProducts('medicine')">Ayurvedic Medicines</button>
-            <button onclick="filterProducts('handicraft')">Handicrafts</button>
+    <div class="container">
+        <!-- Product 1: Cow Dung Cakes -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61gnGtpehVL._AC_UL320_.jpg" alt="Cow Dung Cakes">
+            <h3>Cow Dung Manure (Organic Fertilizer)</h3>
+            <a href="https://www.amazon.in/s?k=Cow+Dung+Manure+%28Organic+Fertilizer%29&crid=XPSZAZEM500Y&sprefix=a2+desi+cow+g%2Caps%2C2037&ref=nb_sb_noss_2" class="buy-btn" target="_blank">Buy Now</a>
         </div>
 
-        <div class="product-grid">
-            <!-- Sample Products -->
-            <div class="product-card" data-category="dairy">
-                <img src="milk.jpg" alt="A2 Milk">
-                <h3>A2 Desi Cow Milk</h3>
-                <p>₹80 per liter</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div class="product-card" data-category="fertilizer">
-                <img src="cowdung.jpg" alt="Cow Dung Fertilizer">
-                <h3>Organic Cow Dung Fertilizer</h3>
-                <p>₹150 per bag</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div class="product-card" data-category="medicine">
-                <img src="panchagavya.jpg" alt="Panchagavya">
-                <h3>Panchagavya Ayurvedic Tonic</h3>
-                <p>₹250 per bottle</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div class="product-card" data-category="handicraft">
-                <img src="diyas.jpg" alt="Cow Dung Diyas">
-                <h3>Handmade Cow Dung Diyas</h3>
-                <p>₹50 per pack</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+        <!-- Product 2: A2 Desi Cow Ghee -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71pYpkxrg4L._AC_UL320_.jpg" alt="A2 Desi Cow Ghee">
+            <h3>A2 Desi Cow Ghee (Pure & Organic)</h3>
+            <a href="https://www.amazon.in/s?k=A2+Desi+Cow+Ghee+%28Pure+%26+Organic&crid=3OA2M3MFLEA8K&sprefix=a2+desi+cow+ghee+pure+%26+organic%2Caps%2C1294&ref=nb_sb_noss_2" class="buy-btn" target="_blank">Buy Now</a>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2025 Gaumitra. All Rights Reserved.</p>
-    </footer>
+        <!-- Product 3: Panchagavya Soap -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61ybuaA3DxL._AC_UL320_.jpg" alt="Panchagavya Soap">
+            <h3>Panchagavya Soap (Ayurvedic)</h3>
+            <a href="https://www.amazon.in/s?k=Panchagavya+Soap+%28Ayurvedic%29&crid=1BN3LQ5XI83B0&sprefix=panchagavya+soap+ayurvedic+%2Caps%2C1415&ref=nb_sb_noss_2" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
 
-    <script src="marketplace.js"></script>
+        <!-- Product 4: Gomutra Ark -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/41E-sLEA0yL._SX300_SY300_QL70_FMwebp_.jpg" alt="Gomutra Ark">
+            <h3>Gomutra Ark (Medicinal Use)</h3>
+            <a href="https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=Gomutra+Ark+%28Medicinal+Use%29&crid=160DFP5AZ1MNI&sprefix=cow+du%2Caps%2C2802" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+
+        <!-- Product 5: Cow Dung Manure -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/81jjZN7y05L._SL1500_.jpg" alt="Cow Dung Manure">
+            <h3>Cow Dung Cakes (for Puja & Manure)</h3>
+            <a href="https://www.amazon.in/ADIOMM-Natural-Indigenous-Handmade-Moisture/dp/B0BQFQZHWN/ref=sr_1_2_sspa?crid=TDIN3ISA9B09&dib=eyJ2IjoiMSJ9.ZYIiNhgWWYnm_N83AzQ_3cWCs3JtR_4Yh2HmCa-fFEjzWXj9rAo7DigboGGeVPmrja_oYDNwOks9rpuSL1zGWncYNTNWliSYR8sQ3FD5uorMvXlzqr0NlB1yGXfm5DT-XhKUOTiLH3c96I3zTJ-EhJfFoYp-QZeagVOaEs1hysDVTIia6SKlY0f1CjSqKeKYNSnUiXlw0hPYP_OO_z4lW5lEgK9pc91gcQSBaKRXfZAcaI3GGKvF5aQnM3oMp_HklhStPduR6IdC6h7EVSO7Y7tfGosuMNAv5cPbqppaFi0.dunpgtQSbmoost73DBCOipdbVKlcAn40kPteLBNq_DQ&dib_tag=se&keywords=cow+dung&qid=1743333874&sprefix=co%2Caps%2C1077&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+         <!-- Product 6: A2 Desi Cow Milk Powder -->
+         <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71ZjP44K8bL._AC_UL320_.jpg" alt="A2 Cow Milk Powder">
+            <h3>A2 Desi Cow Milk Powder</h3>
+            <a href="https://www.amazon.in/s?k=A2+Desi+Cow+Milk+Powder&crid=3FC0LHTGLM29A&sprefix=a2+desi+cow+milk+powder%2Caps%2C643&ref=nb_sb_noss_1" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+
+        <!-- Product 7: Cow Dung Diyas -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71VYlukO7jL._AC_UL320_.jpg" alt="Cow Dung Diyas">
+            <h3>Handmade Cow Dung Diyas</h3>
+            <a href="https://www.amazon.in/s?k=Handmade+Cow+Dung+Diyas&crid=25S19EMLIR4HZ&sprefix=%2Caps%2C1007&ref=nb_sb_noss_2" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+
+        <!-- Product 8: Cow Urine Soap -->
+        <div class="product-card">
+            <img src="https://www.gomataseva.org/wp-content/uploads/2023/09/go-real-soap.webp" alt="Cow Urine Soap">
+            <h3>Cow Urine Soap (Anti-Bacterial)</h3>
+            <a href="https://www.gomataseva.org/product/goreal-cow-urine-soap/?srsltid=AfmBOorZZHzOvk2RMA7lo4731y8uCg69xsmW1QLQaZLuIxMQ9Rqopxxn" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+
+        <!-- Product 9: A2 Cow Cheese -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61Nj1Lqcj2L._SX300_SY300_QL70_FMwebp_.jpg" alt="A2 Cow Cheese">
+            <h3>A2 Desi Cow Cheese</h3>
+            <a href="https://www.amazon.in/dp/B0853687MK?ref=cm_sw_r_cso_wa_apan_dp_W1W5Y49BSX2RZ8JXN8RS&ref_=cm_sw_r_cso_wa_apan_dp_W1W5Y49BSX2RZ8JXN8RS&social_share=cm_sw_r_cso_wa_apan_dp_W1W5Y49BSX2RZ8JXN8RS" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+
+        <!-- Product 10: Natural Cow Dung Toothpaste -->
+        <div class="product-card">
+            <img src="https://cowpathy.com/cdn/shop/products/txkweWbW_O5CW05D2H5_2023-01-17_1.webp?v=1679900623" alt="Cow Dung Toothpaste">
+            <h3>Natural Cow Dung Toothpaste</h3>
+            <a href="https://cowpathy.com/collections/tooth-paste/products/sls-free-panchagavya-herbal-tooth-paste" class="buy-btn" target="_blank">Buy Now</a>
+        </div>
+    </div>
+
 </body>
 </html>
